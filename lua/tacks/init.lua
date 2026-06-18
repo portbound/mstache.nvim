@@ -1,5 +1,5 @@
 local M = {}
-local config = require("mstache.config")
+local config = require("tacks.config")
 
 local function update_global_mark_signs()
 	local bufnr = vim.api.nvim_get_current_buf()
