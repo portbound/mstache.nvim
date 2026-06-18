@@ -1,7 +1,7 @@
-# Mstache Nvim 
-Mstache was designed to make working with marks in neovim more ergonomic for me to use. There are a lot of other plugins that do the same thing, but they all kind of just did too much for what I needed. 
+# Tacks Nvim 
+Tacks was designed to make working with marks in neovim more ergonomic for me to use. There are a lot of other plugins that do the same thing, but they all kind of just did too much for what I needed. 
 
-I just wanted an ergonomic way to mark important parts of my code and interface with them via a picker. 
+I just wanted an ergonomic way to temporarily pin (or tack) hot parts of my code and interface with them via a picker.  
 
 - Only uses global marks from A-Z
 - Adds a gutter icon to show what lines have active mark(s)
@@ -13,12 +13,12 @@ I just wanted an ergonomic way to mark important parts of my code and interface 
 ## Installation 
 Using vim.pack 
 ```lua
-vim.pack.add({ "https://github.com/portbound/mstache.nvim" })
-require("mstache").setup()
+vim.pack.add({ "https://github.com/portbound/tacks.nvim" })
+require("tacks").setup()
 ```
 
 ## Configuration 
-Mstache does not require any config. Here are the defaults: 
+Tacks does not require any config. Here are the defaults: 
 ```lua
 defaults = {
 	icon = " ", -- the default icon is a pin
@@ -31,10 +31,13 @@ defaults = {
 ```
 
 ## Example Setup 
-Here is an example setup using FzfLua, my picker of choice, with Mstache:
+Here is an example setup using FzfLua, my picker of choice, with Tacks:
 ```lua
-vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
-
+vim.pack.add({
+	"https://github.com/ibhagwan/fzf-lua",
+	"https://github.com/portbound/mstache.nvim"
+ })
+require("mstache").setup()
 local fz = require("fzf-lua")
 fz.setup({
 	marks = {
@@ -45,7 +48,4 @@ fz.setup({
 vim.keymap.set("n", "<leader>sm", function()
 	fz.marks()
 end, { desc = "search marks" })
-
-vim.pack.add({ "https://github.com/portbound/mstache.nvim" })
-require("mstache").setup()
 ```
