@@ -35,7 +35,7 @@ Here is an example setup using FzfLua, my picker of choice, with Tacks:
 ```lua
 vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua",
-	"https://github.com/portbound/mstache.nvim"
+	"https://github.com/portbound/tacks.nvim"
  })
 require("tacks").setup()
 local fz = require("fzf-lua")
